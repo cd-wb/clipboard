@@ -1,0 +1,355 @@
+// Global rull
+@import "normal";
+
+$color-logo:hsl(171, 66%, 44%);
+$color-main: hsl(210, 10%, 33%);
+$color-secondary:hsl(201, 11%, 66%);
+$color-macB:hsl(233, 100%, 69%);
+$color-withe:#fff;
+
+$font:'Bai Jamjuree', sans-serif;
+$fw-bold:600;
+$fw-medium:400;
+
+$fz-parag:18px;
+
+ /* `sm` applies to x-small devices (portrait phones, less than 576px) */
+@media (min-width:768px) {
+    .container{
+        width: 660px;
+    }
+
+}
+
+/* `md` applies to small devices (landscape phones, less than 768px) */
+@media (min-width:992px) {
+    .container{
+        width: 850px;
+    }
+
+}
+
+/* `lg` applies to medium devices (tablets, less than 992px) */
+
+@media (min-width: 1200px) {
+    .container{
+        width: 1050px;
+    }
+
+}
+.container{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    font-family: $font;
+}
+@mixin group($g:flex,$alg:center){
+    display: $g;
+    align-items: $alg;
+}
+.spacial-title{
+    padding-top: 125px;
+    text-align: center;
+    .spacial-name{
+        color: $color-main;
+        margin-bottom: 15px;
+    }
+    .spacial-parag{
+        color: $color-secondary;
+        max-width: 750px;
+        font-size: $fz-parag;
+    }
+}
+.header_button{
+    @include group;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    .but{
+        border-radius: 25px;
+        padding:10px 25px;
+        border: 0;
+        cursor: pointer;
+    }
+    .but a{
+        text-decoration: none;
+        font-weight: $fw-bold;
+        color:$color-withe ;
+    }
+    .but:first-child{
+        background-color: $color-logo;
+        box-shadow: 0px 5px 5px hsl(171deg 66% 44% / 63%);
+    }
+    .but:last-child{
+        background-color: $color-macB;
+        box-shadow: 0px 5px 5px  hsl(233deg 100% 69% / 59%);
+    }
+    .but:first-child:is(:hover,:focus){
+        background-color: hsl(171deg 66% 44% / 63%);
+        box-shadow: 0px 5px 5px hsl(171deg 66% 44% / 63%);
+    }
+    .but:last-child:is(:hover,:focus){
+        background-color: hsl(233deg 100% 69% / 59%);
+        box-shadow: 0px 5px 5px  hsl(233deg 100% 69% / 59%);
+    }
+}
+
+@media (max-width:500px){
+    .spacial-title{
+        padding-top: 70px;
+        .spacial-name{
+            font-size: 1.3rem;
+        }
+        .spacial-parag{
+            width: 350px;
+            font-size: $fz-parag - 3;
+        }
+    }
+} 
+// //Global rull
+
+// //header
+
+.header{
+    background-image: url(../images/bg-header-desktop.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    height: 100vh;
+    position: relative;
+    .container{
+        @include group;
+        padding-top: 90px;
+        flex-direction:column;
+        align-content: center;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+    
+    .logo{
+        width: 100px;
+        margin-bottom: 30px
+    }
+    .header_text{
+        @include group;
+        flex-direction: column;
+        .h-text_title{
+            color:$color-main;
+            margin-bottom: 15px;
+        }
+        .h-text_desc{
+            color: $color-secondary;
+            max-width: 500px;
+            margin-bottom: 35px;
+            font-size: $fz-parag;
+        }
+    }
+}
+
+@media (max-width:500px) {
+    .header{
+        background-image: url(../images/bg-header-mobile.png);
+        background-size: 100%;
+    }
+    .h-text_title{
+        font-size: 1.3rem;
+    }
+    .header .header_text .h-text_desc{
+        width: 300px;
+        font-size: $fz-parag - 3;
+    }   
+}
+// //header
+
+// featurs
+.featurs{
+    padding-top: 60px;
+
+    .featurs_cont{
+        @include group(grid, center);
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        .computare{
+            max-width: 700px;
+            position: relative;
+            img{
+                position: absolute;
+                top: -200px;
+                left: -35px;
+            }
+        }
+        .featurs_text{
+            @include group(grid,flex-start );
+            gap: 50px;
+
+            .quick_desc{
+                max-width: 350px;
+                line-height: 1.7;
+                color: $color-secondary;
+            }
+            .title{
+                color: $color-main;
+            }
+        }
+    }
+    .spacial-title{
+        @include group;
+        text-align: center;
+        flex-direction: column;
+        padding-top: 250px;
+    }
+}
+@media (max-width:500px) {
+    .featurs{
+        .featurs_cont{
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            .computare{ 
+                padding-bottom: 40px;
+                img{
+                    position: initial;
+            
+                } 
+            }
+        }
+        .spacial-title{
+            padding-top: 70px;
+        }
+    }
+}
+//// featurs
+
+// devices
+.image{
+    .devices{
+        padding-top: 80px;
+    }
+   .spacial-title{
+        @include group(flex,center);
+        flex-direction:column;
+        padding-top: 40px;
+   } 
+}
+////devices 
+
+/// supercharge
+.supercharge{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    .supercharge_card{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+        .card_sup{
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            gap: 20px;
+            
+            .title-sup{
+                color: $color-main
+            }
+            .parag-sup{
+                color: $color-secondary;
+                max-width: 390px
+            }
+        }
+    }
+    .company{
+        @include group(flex, center);
+        padding-top: 80px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+    }
+   .spacial-title{
+        @include group(flex,center);
+        flex-direction:column;
+        padding-top: 80px;
+        padding-bottom: 40px;
+   } 
+
+}
+@media (max-width:500px) {
+    .company{
+        flex-direction: column;
+    }
+}
+///// supercharge
+/// footer
+.footer{
+    padding-top: 10px;
+    padding-bottom: 15px;
+    background-color:rgba(172, 177, 180, 0.466);
+    .container{
+        @include group(flex,center);
+        justify-content: space-between;
+        align-content: center;
+        padding: 20px;
+        font-weight: $fw-bold;
+        gap: 15px;
+
+        .contant1{
+            @include group(flex,flex-start);
+            gap: 40px;
+            line-height: 1.8;
+
+            .col {
+                a{
+                    text-decoration: none;
+                    color: $color-main;
+                    &:is(:focus,:hover){
+                        color: $color-logo;
+                    }
+                }
+                img{
+                    width: 60px;
+                }
+            }
+        }
+        .contant2{
+            i{
+                padding-left: 7.5px;
+                padding-right: 7.5px;
+                font-size: 20px;
+                color: $color-main;
+                cursor: pointer;
+                &:is(:hover,:focus){
+                    color: $color-logo;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:500px) {
+    .footer{
+        .container{
+            flex-direction: column;
+            text-align: center;
+            .contant1{
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .contant2 {
+                padding-top: 30px;
+                i{
+                    font-size: 30px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+///// footer
